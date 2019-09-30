@@ -2,26 +2,34 @@ package com.example.UnitTestingSample.business;
 
 import static org.junit.Assert.*;
 
-import org.junit.Before;
+//import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 
 import com.example.UnitTestingSample.data.SomeDataService;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import  org.mockito.junit.MockitoJUnitRunner;
 
+
+@RunWith(MockitoJUnitRunner.class)
 public class SomeBusinessMockTest {
 
+	@InjectMocks
+	SomeBusinessImpl business ;
 	
-	SomeBusinessImpl business = new SomeBusinessImpl();
+	@Mock
 	SomeDataService dataServiceMock = mock(SomeDataService.class);
 	
-	@Before
-	
-	public void before()
-	{
-		business.setSomeDataService( dataServiceMock);
-	}
-	
+//	@Before
+//	
+//	public void before()
+//	{
+//		business.setSomeDataService( dataServiceMock);
+//	}
+//	
 	
 	@Test
 	public void calculateSumUsingDataService_basic() {
