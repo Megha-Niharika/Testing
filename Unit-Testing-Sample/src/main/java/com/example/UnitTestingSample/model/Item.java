@@ -1,11 +1,21 @@
 package com.example.UnitTestingSample.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+
+@Entity
 public class Item {
 
+	
+	@Id
 	private int id;
 	private String name;
 	private int quantity;
 	private int price;
+	
+	@Transient
+	private int value;
 	
 	
 	public Item(int id, String name, int price, int quantity) {
@@ -50,6 +60,15 @@ public class Item {
 		this.price = price;
 	}
 
+	
+	public int getValue() {
+		return value;
+	}
+
+	public void setValue(int value) {
+		this.value = value;
+	}
+	
 	@Override
 	public String toString() {
 		return String.format("Item[%d,%s,%d,%d]", id,name,price,quantity);
