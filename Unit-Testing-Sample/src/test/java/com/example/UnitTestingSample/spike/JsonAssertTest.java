@@ -34,7 +34,7 @@ public class JsonAssertTest {
 	public void jsonAssert_withoutEscapeChar() throws JSONException{
 		
 		String expectedExpected = "{id: 1,name:ball,quantity:100,price:10}";
-		JSONAssert.assertEquals(expectedExpected, actualResponse, false);
+		JSONAssert.assertEquals(expectedExpected, actualResponse,false);
 		
 	}
 }

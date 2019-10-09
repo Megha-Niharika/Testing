@@ -14,10 +14,10 @@ public class Item {
 		 this.price = price;
 		 this.quantity=quantity;
 			
-			
-			// TODO Auto-generated constructor stub
 		}
 
+	
+	
 	public int getId() {
 		return id;
 	}

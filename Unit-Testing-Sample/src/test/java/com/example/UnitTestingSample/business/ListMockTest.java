@@ -90,6 +90,7 @@ public class ListMockTest {
 		
 		ArrayList arrayListMock = mock(ArrayList.class);
 		System.out.println(arrayListMock.get(0));//null
+
 		System.out.println(arrayListMock.size());//1
 		arrayListMock.add("test");
 		arrayListMock.add("test2");

@@ -10,7 +10,7 @@ public class ItemBusinessService {
 
 	public Item retrieveHardcodedItem() {
 		// TODO Auto-generated method stub
-		return new  Item(1,"ball",10,100);
+		return new  Item(1,"football",10,100);
 	}
 
 }
