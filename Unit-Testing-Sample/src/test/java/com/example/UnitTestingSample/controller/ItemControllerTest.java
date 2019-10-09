@@ -29,83 +29,83 @@ import static org.mockito.Mockito.when;
 @RunWith(SpringRunner.class)
 @WebMvcTest(ItemController.class)
 public class ItemControllerTest {
-	
+
 	@Autowired
-	 private MockMvc mockMvc;
+	private MockMvc mockMvc;
 	@MockBean
 	private ItemBusinessService businessService;
-	
-	
+
+
 	@Test
 	public void dummy_item() throws Exception
 	{
-		
+
 		RequestBuilder request = MockMvcRequestBuilders
 				.get("/dummy_item")
 				.accept(MediaType.APPLICATION_JSON);
-		
-	       MvcResult result =	mockMvc.perform(request)
-			.andExpect(status().isOk())
-			.andExpect(content().json("{\"id\":1,\"name\":\"ball\",\"quantity\":100,\"price\":10}"))
-			.andReturn();
-	
-	//JSONAssert.assertEquals(expected, actual, strict);
-	//assertEquals("helloworld",result.getResponse().getContentAsString());
-		 
+
+		MvcResult result =	mockMvc.perform(request)
+				.andExpect(status().isOk())
+				.andExpect(content().json("{\"id\":1,\"name\":\"ball\",\"quantity\":100,\"price\":10}"))
+				.andReturn();
+
+		//JSONAssert.assertEquals(expected, actual, strict);
+		//assertEquals("helloworld",result.getResponse().getContentAsString());
+
 	}
-	
+
 	@Test
 	public void itemfrombusinessService() throws Exception
 	{
-		
-		
+
+
 		when(businessService.retrieveHardcodedItem()).thenReturn(
 				new Item(2,"Item2",10,10));
 		RequestBuilder request = MockMvcRequestBuilders
 				.get("/item-from-business-service")
 				.accept(MediaType.APPLICATION_JSON);
-		
-	       MvcResult result =	mockMvc.perform(request)
-			.andExpect(status().isOk())
-			.andExpect(content().json("{id:2,name:Item2,quantity:10,price:10}"))
-			.andReturn();
+
+		MvcResult result =	mockMvc.perform(request)
+				.andExpect(status().isOk())
+				.andExpect(content().json("{id:2,name:Item2,quantity:10,price:10}"))
+				.andReturn();
 	}
-	
-//	@Test
-//	public void dummy_item() throws Exception
-//	{
-//		
-//		RequestBuilder request = MockMvcRequestBuilders
-//				.get("/dummy_item")
-//				.accept(MediaType.APPLICATION_JSON);
-//		
-//	       MvcResult result =	mockMvc.perform(request)
-//			.andExpect(status().isOk())
-//			.andExpect(content().json("{\"id\":1,\"name\":\"ball\",\"quantity\":100,\"price\":10}"))
-//			.andReturn();
-//	
-//	//JSONAssert.assertEquals(expected, actual, strict);
-//	//assertEquals("helloworld",result.getResponse().getContentAsString());
-//		 
-//	}
-	
+
+	//	@Test
+	//	public void dummy_item() throws Exception
+	//	{
+	//		
+	//		RequestBuilder request = MockMvcRequestBuilders
+	//				.get("/dummy_item")
+	//				.accept(MediaType.APPLICATION_JSON);
+	//		
+	//	       MvcResult result =	mockMvc.perform(request)
+	//			.andExpect(status().isOk())
+	//			.andExpect(content().json("{\"id\":1,\"name\":\"ball\",\"quantity\":100,\"price\":10}"))
+	//			.andReturn();
+	//	
+	//	//JSONAssert.assertEquals(expected, actual, strict);
+	//	//assertEquals("helloworld",result.getResponse().getContentAsString());
+	//		 
+	//	}
+
 	@Test
 	public void retrieveAllItems_basic() throws Exception
 	{
-		
-		
+
+
 		when(businessService.retrieveAllItems()).thenReturn(
 				Arrays.asList(new Item(2,"Item2",10,10),new Item(3,"Item3",20,20))
 				);
 		RequestBuilder request = MockMvcRequestBuilders
 				.get("/all-items")
 				.accept(MediaType.APPLICATION_JSON);
-		
-	       MvcResult result =	mockMvc.perform(request)
-			.andExpect(status().isOk())
-			.andExpect(content().json("[{id:2,name:Item2,quantity:10,price:10},{id:3,name:Item3,quantity:20,price:20}]"))
-			.andReturn();
+
+		MvcResult result =	mockMvc.perform(request)
+				.andExpect(status().isOk())
+				.andExpect(content().json("[{id:2,name:Item2,quantity:10,price:10},{id:3,name:Item3,quantity:20,price:20}]"))
+				.andReturn();
 	}
-	
-	
+
+
 }
