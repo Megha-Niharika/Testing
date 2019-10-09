@@ -9,10 +9,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
 import com.example.UnitTestingSample.data.ItemRepository;
-import com.example.UnitTestingSample.data.SomeDataService;
+
 import com.example.UnitTestingSample.model.Item;
 
-import static org.mockito.Mockito.mock;
+
 import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
